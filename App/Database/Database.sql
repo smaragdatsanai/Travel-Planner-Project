@@ -1,5 +1,5 @@
 -- Create a table for storing website user information
-CREATE TABLE users (
+CREATE TABLE USER (
   user_id INTEGER PRIMARY KEY,
   username TEXT,
   email TEXT,
@@ -8,7 +8,7 @@ CREATE TABLE users (
 );
 
 -- Create a table for storing travel plan information
-CREATE TABLE plans (
+CREATE TABLE PLAN (
   plan_id INTEGER PRIMARY KEY,
   user_id INTEGER,
   plan_name TEXT,
@@ -19,7 +19,7 @@ CREATE TABLE plans (
 );
 
 -- Create a table for storing flight information
-CREATE TABLE flights (
+CREATE TABLE FLIGHT (
   flight_id INTEGER PRIMARY KEY,
   plan_id INTEGER,
   airline TEXT,
@@ -34,7 +34,7 @@ CREATE TABLE flights (
 );
 
 -- Create a table for storing accommodation information
-CREATE TABLE accommodations (
+CREATE TABLE ACCOMMODATION (
   accommodation_id INTEGER PRIMARY KEY,
   plan_id INTEGER,
   name TEXT,
@@ -47,7 +47,7 @@ CREATE TABLE accommodations (
 );
 
 -- Create a table for storing activity information
-CREATE TABLE activities (
+CREATE TABLE ACTIVITIE(
   activity_id INTEGER PRIMARY KEY,
   plan_id INTEGER,
   name TEXT,
