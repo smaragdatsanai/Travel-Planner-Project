@@ -1,0 +1,21 @@
+
+.cont_style{
+    background-color:#c7e3c2;
+    border-radius:10px;
+}
+.cont_header{
+    font-size: 150%;
+    font-weight: 500;
+    text-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    
+}
+
+@media (min-width: 768px) {
+    .cont_style{
+        margin:3rem;
+    }
+    .cont_header{
+        font-size: 200%;
+        font-weight: 700;
+    }
+}

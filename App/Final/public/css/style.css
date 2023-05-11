@@ -1,0 +1,110 @@
+html, body{
+    height: 100%;
+    width:100%;
+}
+
+.navbar{
+    background-color: rgb(43, 43, 43);
+    padding: 1% 0;
+    font-size:1.2em;
+}
+
+.navbar-brand{
+    min-height: 40px;
+}
+
+.navbar-nav li a .hover, .navbar-nav li a .active{
+    color:#991717;
+}
+
+
+#home{
+    background: url("/Public/img/bgpicture.jpg") no-repeat center center fixed;
+    background-color: #fffcfc; /* fallback background color */
+    display: table;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    background-size: cover;
+}
+
+
+.landing-text{
+    display: table-cell;
+    text-align:center;
+    vertical-align: middle;
+
+}
+
+.landing-text h1{
+    font-size: 300%;
+    font-weight: 700;
+}
+
+.padding{
+    background: url("/Public/img/bgpicture.jpg") no-repeat center center fixed;
+    display: table;
+    width: 100%;
+    background-size: cover;
+    padding: 40px 0px;
+}
+
+.padding img {
+    width:100%;
+    }
+
+#fixed {
+    background: url("/Public/img/bgpicture.jpg")  no-repeat center center fixed;
+    display:table;
+    height:60%;
+    position:relative;
+    width:100%;
+    background-size:cover;
+}
+
+footer{
+    width:100%;
+    background-color: rgb(0, 0, 0);
+    color:#FFF;
+}
+
+.fa {
+    padding: 15px;
+    font-size: 25px;
+    color:#ffffff;
+}
+.fa .hover{
+    color:blue;
+    text-decoration:none;
+}
+
+.signup-form{
+    text-align:center;
+    vertical-align: middle;
+}
+
+
+.profile-picture {
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+  }
+
+.profile-link{
+    color: black;
+
+}
+
+
+
+
+@media(max-width:768px){
+    .landing-text h1 {
+        font-size:300%
+    }
+    .fa{
+        font-size:20px;
+        padding:10px;
+    }
+}

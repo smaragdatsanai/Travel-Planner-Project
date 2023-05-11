@@ -1,0 +1,84 @@
+<div id="home">
+    <div class="d-flex justify-content-center">
+        <div class="container-sm m-5 p-5 align-items-center justify-content-center rounded-3"
+            style="border-radius: 10rem; background-color: #c7e3c2; max-width:600px;  box-shadow: 4px 3px 7px 2px #00000040;">
+            <div class="landing-text d-flex justify-content-center">
+                <h1>Restaurant Table Booking</h1>
+            </div>
+
+            <div class="container d-flex align-items-center justify-content-center signup-form">
+                <form action="/action_page.php" class="needs-validation">
+                    <div class="col-lg form-floating mb-3">
+                        <input type="text" class="form-control" id="NameInput" placeholder="Username" required>
+                        <label for="NameInput">Reservation name</label>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="col-sm form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="col-sm form-floating mb-3">
+                        <input type="number" class="form-control" id="table-type"
+                            placeholder="Enter the amount of people in your reservation" required>
+                        <label for="table-type">Party-size:</label>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="col-sm form-floating mb-3">
+                        <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number"
+                            required>
+                        <label for="phone">Phone number</label>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="col-sm form-floating mb-3">
+                        <input type="date" class="form-control" id="date" placeholder="Enter Date" required>
+                        <label for="date">Date:</label>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="col-sm form-floating mb-3">
+
+                        <input type="time" class="form-control" id="time" placeholder="Enter Time" required>
+                        <label for="time">Time:</label>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+
+                    <div class="table-templates mt-3 mb-3 pb-sm-3">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="https://via.placeholder.com/150" alt="Table Template" class="img-fluid">
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="radio" name="table-template"
+                                        id="table-template1" value="table-template1">
+                                    <label class="form-check-label" for="table-template1">Table Template 1</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="https://via.placeholder.com/150" alt="Table Template" class="img-fluid">
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="radio" name="table-template"
+                                        id="table-template2" value="table-template2">
+                                    <label class="form-check-label" for="table-template2">Table Template 2</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="https://via.placeholder.com/150" alt="Table Template" class="img-fluid">
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="radio" name="table-template"
+                                        id="table-template3" value="table-template3">
+                                    <label class="form-check-label" for="table-template3">Table Template 3</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark btn-lg">Make reservation</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
