@@ -47,7 +47,7 @@ CREATE TABLE ACCOMMODATION (
 );
 
 -- Create a table for storing activity information
-CREATE TABLE ACTIVITIE(
+CREATE TABLE ACTIVITIES(
   activity_id INTEGER PRIMARY KEY,
   plan_id INTEGER,
   name TEXT,
