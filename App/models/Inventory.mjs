@@ -1,0 +1,6 @@
+class Inventory {
+    
+    updateDatabase() {
+        
+    }
+}
