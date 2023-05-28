@@ -1,6 +1,0 @@
-class Inventory {
-    
-    updateDatabase() {
-        
-    }
-}
