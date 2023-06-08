@@ -72,6 +72,22 @@ const Flight = sequelize.define('Flight', {
         type: DataTypes.DATE,
         allowNull: false
     },
+    departureAirport: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    arrivalAirport: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    departureLocation: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    arrivalLocation: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     price: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false
@@ -84,7 +100,15 @@ const Destination = sequelize.define('Destination', {
         primaryKey: true,
         autoIncrement: true
     },
-    name: {
+    Country:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    City:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    Image:{
         type: DataTypes.STRING,
         allowNull: false
     }
