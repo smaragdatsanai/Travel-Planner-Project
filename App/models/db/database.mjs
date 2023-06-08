@@ -47,10 +47,6 @@ const Flight = sequelize.define('Flight', {
     price: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false
-    },
-    travelPlanId: {
-        type: DataTypes.INTEGER,
-        allowNull: false
     }
 });
 
@@ -62,10 +58,6 @@ const Destination = sequelize.define('Destination', {
     },
     name: {
         type: DataTypes.STRING,
-        allowNull: false
-    },
-    travelPlanId: {
-        type: DataTypes.INTEGER,
         allowNull: false
     }
 });
@@ -91,10 +83,6 @@ const Accommodation = sequelize.define('Accommodation', {
     price: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false
-    },
-    travelPlanId: {
-        type: DataTypes.INTEGER,
-        allowNull: false
     }
 });
 
@@ -111,10 +99,6 @@ const Rating = sequelize.define('Rating', {
     description: {
         type: DataTypes.STRING,
         allowNull: false
-    },
-    travelPlanId: {
-        type: DataTypes.INTEGER,
-        allowNull: false
     }
 });
 
@@ -124,65 +108,41 @@ const UserInventory = sequelize.define('UserInventory', {
         primaryKey: true,
         autoIncrement: true
     },
-    travelPlanId: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
     quantity: {
         type: DataTypes.INTEGER,
         allowNull: false
     }
 });
 
-const BudgetHandling = sequelize.define('BudgetHandling', {
-    id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-    },
-    description: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    amount: {
-        type: DataTypes.DECIMAL(10, 2),
-        allowNull: false
-    },
-    travelPlanId: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    }
-});
 
 
-TravelPlan.hasMany(Flight, { foreignKey: 'travelPlanId' });
-TravelPlan.hasMany(Destination, { foreignKey: 'travelPlanId' });
-TravelPlan.hasMany(Accommodation, { foreignKey: 'travelPlanId' });
+TravelPlan.hasMany(Flight, { foreignKey: '' });
+TravelPlan.hasMany(Destination, { foreignKey: 'destinationId' });
+TravelPlan.hasMany(Accommodation, { foreignKey: 'accommodationId' });
 TravelPlan.hasMany(Rating, { foreignKey: 'travelPlanId' });
-TravelPlan.hasMany(UserInventory, { foreignKey: 'travelPlanId' });
-TravelPlan.hasMany(BudgetHandling, { foreignKey: 'travelPlanId' });
 
 Flight.belongsTo(TravelPlan, { foreignKey: 'travelPlanId' });
 Destination.belongsTo(TravelPlan, { foreignKey: 'travelPlanId' });
 Accommodation.belongsTo(TravelPlan, { foreignKey: 'travelPlanId' });
 Rating.belongsTo(TravelPlan, { foreignKey: 'travelPlanId' });
+
+TravelPlan.hasMany(UserInventory, { foreignKey: 'travelPlanId' });
+
 UserInventory.belongsTo(TravelPlan, { foreignKey: 'travelPlanId' });
-BudgetHandling.belongsTo(TravelPlan, { foreignKey: 'travelPlanId' });
 
 
 
-sequelize.sync({ force: true }) // Set `force` to `true` if you want to drop and recreate the tables on every sync
-    .then(() => {
-        console.log('Database synced');
-    })
-    .catch((error) => {
-        console.error('Error syncing database:', error);
-    });
-
-export { TravelPlan,
+try {
+    await sequelize.sync({ alter: true });
+    console.log('Database sync successful!');
+} catch (err) {
+    console.error('Error sychronizing the database:', err);
+}
+export {
+    TravelPlan,
     Flight,
     Destination,
     Accommodation,
     Rating,
     UserInventory,
-    BudgetHandling } 
+} 

@@ -1,4 +1,4 @@
-import * as accomodation from '../models/Accomodation.mjs'
+import * as accommodation from '../models/Accommodation.mjs'
 
 class AccommodationController {
 

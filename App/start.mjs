@@ -7,7 +7,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 import { app } from './app.mjs';
 
-
 const port = process.env.PORT || '3000';
 
 const server = app.listen(port, () => {
