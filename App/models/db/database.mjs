@@ -2,6 +2,30 @@ import { sequelize } from './dbConfig.mjs'
 import { DataTypes, UUIDV4 } from 'sequelize'
 
 
+const User = sequelize.define('User',{
+    User_Id:{
+        type: DataTypes.UUID,
+        allowNull:false,
+        primaryKey: true
+    },
+    Username:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    Password:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    Email:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    ProfileImage:{
+        type: DataTypes.TEXT,
+        allowNull: true
+    }
+});
+
 const TravelPlan = sequelize.define('TravelPlan', {
     id: {
         type: DataTypes.INTEGER,
@@ -20,9 +44,13 @@ const TravelPlan = sequelize.define('TravelPlan', {
         type: DataTypes.DATE,
         allowNull: false
     },
+    status: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     budget: {
         type: DataTypes.DECIMAL(10, 2),
-        allowNull: false
+        allowNull: true
     }
 });
 
@@ -102,34 +130,59 @@ const Rating = sequelize.define('Rating', {
     }
 });
 
-const UserInventory = sequelize.define('UserInventory', {
+const Itinerary = sequelize.define('Itinerary', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    quantity: {
-        type: DataTypes.INTEGER,
+    date: {
+      type: DataTypes.DATEONLY,
+      allowNull: false,
+    },
+    time: {
+      type: DataTypes.TIME,
+      allowNull: false,
+    },
+    activityName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    price: {
+        type: DataTypes.DECIMAL(10, 2),
         allowNull: false
     }
+  });
+
+const Favourites = sequelize.define('Favourites', {
 });
 
 
+User.hasMany(TravelPlan);
+TravelPlan.belongsTo(User);
 
-TravelPlan.hasMany(Flight, { foreignKey: '' });
-TravelPlan.hasMany(Destination, { foreignKey: 'destinationId' });
-TravelPlan.hasMany(Accommodation, { foreignKey: 'accommodationId' });
-TravelPlan.hasMany(Rating, { foreignKey: 'travelPlanId' });
+TravelPlan.belongsToMany(Destination, { through: 'TravelPlanDestination' });
+Destination.belongsToMany(TravelPlan, { through: 'TravelPlanDestination' });
 
-Flight.belongsTo(TravelPlan, { foreignKey: 'travelPlanId' });
-Destination.belongsTo(TravelPlan, { foreignKey: 'travelPlanId' });
-Accommodation.belongsTo(TravelPlan, { foreignKey: 'travelPlanId' });
-Rating.belongsTo(TravelPlan, { foreignKey: 'travelPlanId' });
+TravelPlan.belongsToMany(Accommodation, { through: 'TravelPlanAccommodation' });
+Accommodation.belongsToMany(TravelPlan, { through: 'TravelPlanAccommodation' });
 
-TravelPlan.hasMany(UserInventory, { foreignKey: 'travelPlanId' });
+TravelPlan.belongsToMany(Flight, { through: 'TravelPlanFlight' });
+Flight.belongsToMany(TravelPlan, { through: 'TravelPlanFlight' });
 
-UserInventory.belongsTo(TravelPlan, { foreignKey: 'travelPlanId' });
+TravelPlan.hasMany(Itinerary);
+Itinerary.belongsTo(TravelPlan);
 
+User.belongsToMany(TravelPlan, { through: Favourites });
+TravelPlan.belongsToMany(User, { through: Favourites });
+
+Rating.belongsTo(TravelPlan,{ foreignKey:'travelPlanId'});
+User.hasMany(Rating,{ foreignKey:'UserId'});
+Rating.belongsTo(User,{ foreignKey:'UserId'});
 
 
 try {
@@ -144,5 +197,7 @@ export {
     Destination,
     Accommodation,
     Rating,
-    UserInventory,
+    Favourites,
+    User,
+    Itinerary
 } 
