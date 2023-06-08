@@ -1,6 +1,7 @@
 class Budget {
     
-    constructor(expense, state) {
+    constructor(plan_id, expense, state) {
+        this.plan_id = plan_id;
         this.expense = expense;
         this.state = state;
     }
