@@ -1,33 +1,41 @@
 <nav class="user_nav navbar navbar-expand-lg navbar sticky-top navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">researveEat</a>
+    <a class="navbar-brand" href="#">Trippin</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/home">Home</a>
-        </li>
-        {{!-- <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/restaurants">Restaurants</a> --}}
+          <a class="nav-link active" aria-current="page" href="#">Main</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/Profile">My profile</a>
+          <a class="nav-link" aria-current="page" href="#">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#">Settings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#">Support</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#">My inventory</a>
         </li>
         {{#unless username}}
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/login">Log in</a>
         </li>
         {{/unless}}
+
       </ul>
     </div>
     <div class="ms-auto">
-      <a class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" href="#"
-         id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="https://img.freepik.com/premium-vector/anonymous-user-circle-icon-vector-illustration-flat-style-with-long-shadow_520826-1931.jpg"
-             alt="user-profile" width="30" height="30" class="rounded-circle me-2">
+      <a class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" href="#" id="dropdownUser1"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        <img
+          src="https://img.freepik.com/premium-vector/anonymous-user-circle-icon-vector-illustration-flat-style-with-long-shadow_520826-1931.jpg"
+          alt="user-profile" width="30" height="30" class="rounded-circle me-2">
         <span class="text-white ms-2">{{#if username}}{{{username}}} {{else}}Profile{{/if}}</span>
       </a>
       <ul class="dropdown-menu dropdown-menu-end text-small" aria-labelledby="dropdownUser1">
@@ -37,8 +45,8 @@
         <li>
           <hr class="dropdown-divider">
         </li>
-       <li><a class="dropdown-item" href="/logout">Sign out</a></li>
-       <li><a class="dropdown-item" href="/switchaccounts">Switch Accounts</a></li>
+        <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+        <li><a class="dropdown-item" href="/switchaccounts">Switch Accounts</a></li>
         {{/if}}
       </ul>
     </div>

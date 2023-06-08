@@ -15,4 +15,11 @@ import multer from 'multer';
 
 const upload = multer({ dest: 'public/uploads/' });
 
+
+router.get("/", (req, res) => {
+    
+        res.render("./home")
+}
+);
+
 export default router;
