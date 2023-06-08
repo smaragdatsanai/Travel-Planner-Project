@@ -1,3 +1,5 @@
+import {Accommodation} from "./db/database.mjs";
+
 class Accomodation {
 
     constructor(accomodation_id, plan_id, name, check_in_date, check_in_time, check_out_date, check_out_time, location) {

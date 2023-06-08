@@ -21,4 +21,4 @@ class AccommodationController {
     
 }
 
-export {AccomodationController}
+export {AccommodationController}

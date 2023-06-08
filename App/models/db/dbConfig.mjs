@@ -17,10 +17,6 @@ const sequelize = new Sequelize({
     
 });
 
-  
-
-
-
 const testDbConnection = async () => {
       try {
         await sequelize.authenticate();
