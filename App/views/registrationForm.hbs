@@ -1,0 +1,52 @@
+<div id="home">
+    <div class="d-flex justify-content-center">
+        <div class="container-sm m-5 p-5 align-items-center justify-content-center rounded-3"
+            style=" background-color: #c7e3c2; max-width:600px;  box-shadow: 4px 3px 7px 2px #00000040;">
+            <div class="landing-text pb-sm-3 mb-sm-4 ">
+                <h1>Welcome to reserveEat</h1>
+                <h2>Create an account</h2>
+            </div>
+
+            <div class="container d-flex align-items-center justify-content-center signup-form">
+                <form action="/doRegister" method="post" class="needs-validation">
+                    <div class="col-sm form-floating mb-3">
+                        <input value="{{username}}" name="username" type="text" class="form-control" id="userNameInput"
+                            placeholder="Username" required>
+                        <label for="userNameInput">Username</label>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="col-sm form-floating mb-3">
+                        <input value="{{email}}" name="email"  type="email" class="form-control" id="floatingInput"
+                            placeholder="name@example.com" required>
+                        <label for="floatingInput">Email address</label>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="col-sm form-floating mb-3">
+                        <input value="{{password}}" name="password" type="password" class="form-control" id="floatingPassword"
+                            placeholder="Password" required>
+                        <label for="floatingPassword">Password</label>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="col-sm form-floating mb-3">
+                        <input value="{{confirmationPassword}}" name="confirmationPassword"  type="password" class="form-control"
+                            id="floatingPasswordConfirm" placeholder="Password" required>
+                        <label for="floatingPasswordConfirm">Confirm Password</label>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="col-sm mb-sm-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-dark btn-lg mb-sm-3">Submit</button>
+                    <div class="col-sm  mb-sm-2">
+                        <a href="/login" style="color: black; ">Click here if you already have an account</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

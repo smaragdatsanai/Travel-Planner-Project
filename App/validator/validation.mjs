@@ -3,7 +3,7 @@ import validator from 'validator'
 
 const validateLogin = [
     body("username")
-        .trim().escape().isLength({ min: 4 }) // Θα μπορούσαμε να έχουμε και άλλους ελέγχους
+        .trim().escape().isLength({ min: 4 }) 
         .withMessage("Δώστε όνομα με τουλάχιστον 4 χαρακτήρες"),
     (req, res, next) => {
         const errors = validationResult(req)
@@ -20,7 +20,7 @@ const validateLogin = [
 
 const validateNewUser = [
     body("username")
-    .trim().escape().isLength({ min: 4 }) // Θα μπορούσαμε να έχουμε και άλλους ελέγχους
+    .trim().escape().isLength({ min: 4 }) 
     .withMessage("Δώστε όνομα με τουλάχιστον 4 χαρακτήρες"),
     body("confirmationPassword")
     .trim()
