@@ -9,6 +9,7 @@ import cheerio from 'cheerio';
 
 async function createUser(){
     try{
+        await sequelize.sync({ alter: true });
         for (let i = 0; i < 10; i++) {
             await User.create({
               Username: faker.internet.userName(),
@@ -18,7 +19,8 @@ async function createUser(){
             });
           }
     }catch(error){
-        console.error('Error adding data to User:', cityName);
+        console.error('Error adding data to User');
+        console.error(error);
     }
 } 
 
@@ -32,7 +34,6 @@ async function createDestination(countryName,cityName,image){
             City: cityName,
             Image: image
           });
-          console.log(Dest)
     }catch(error){
         console.error('Error adding data to destination:', cityName);
     }
@@ -101,6 +102,7 @@ export async function fetchWikivoyageData() {
         scrapeCountryData(listItemText);
       }
     });
+    createUser();
     
   } catch (error) {
     console.error('Error fetching data from Wikivoyage:', error);
