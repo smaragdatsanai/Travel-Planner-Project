@@ -3,10 +3,10 @@ import { DataTypes, UUIDV4 } from 'sequelize'
 
 
 const User = sequelize.define('User',{
-    User_Id:{
-        type: DataTypes.UUID,
-        allowNull:false,
-        primaryKey: true
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
     },
     Username:{
         type: DataTypes.STRING,

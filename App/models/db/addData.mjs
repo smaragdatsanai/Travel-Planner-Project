@@ -7,16 +7,19 @@ import cheerio from 'cheerio';
 
 
 
-async function createUser(){
+export async function createUser(){
     try{
         await sequelize.sync({ alter: true });
+        const password= faker.internet.password()
+        const Password_hash = await bcrypt.hash(password, 10)
         for (let i = 0; i < 10; i++) {
-            await User.create({
+            const user= await User.create({
               Username: faker.internet.userName(),
-              Password: faker.internet.password(),
+              Password:  Password_hash,
               Email: faker.internet.email(),
               ProfileImage: 'https://img.freepik.com/premium-vector/anonymous-user-circle-icon-vector-illustration-flat-style-with-long-shadow_520826-1931.jpg'
             });
+            console.log(user)
           }
     }catch(error){
         console.error('Error adding data to User');
@@ -102,7 +105,6 @@ export async function fetchWikivoyageData() {
         scrapeCountryData(listItemText);
       }
     });
-    createUser();
     
   } catch (error) {
     console.error('Error fetching data from Wikivoyage:', error);
