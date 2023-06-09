@@ -61,7 +61,7 @@ app.set("view engine",".hbs")
 app.use(express.static("public"))
 
 
-import * as Data from './models/db/addData.mjs'
+// import * as Data from './models/db/addData.mjs'
 // Data.fetchWikivoyageData();
 // Data.createUser();
 

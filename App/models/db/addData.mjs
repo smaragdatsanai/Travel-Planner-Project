@@ -27,6 +27,63 @@ export async function createUser(){
     }
 } 
 
+export async function createAccommodation(){
+  try{
+      
+  }catch(error){
+      console.error('Error adding data to User');
+      console.error(error);
+  }
+} 
+
+export async function createFlight(){
+  try{
+      
+  }catch(error){
+      console.error('Error adding data to Flight');
+      console.error(error);
+  }
+} 
+export async function createItinerary(){
+  try{
+      
+  }catch(error){
+      console.error('Error adding data to Itinerary');
+      console.error(error);
+  }
+} 
+
+
+export async function createTravelPlan(){
+  try{
+      
+  }catch(error){
+      console.error('Error adding data to TravelPlan');
+      console.error(error);
+  }
+} 
+
+
+export async function createRating(){
+  try{
+      
+  }catch(error){
+      console.error('Error adding data to Rating');
+      console.error(error);
+  }
+} 
+
+export async function createFavourites(){
+  try{
+      
+  }catch(error){
+      console.error('Error adding data to Rating');
+      console.error(error);
+  }
+} 
+
+
+
 
 async function createDestination(countryName,cityName,image){
     try{

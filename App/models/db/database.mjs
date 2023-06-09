@@ -124,12 +124,8 @@ const Accommodation = sequelize.define('Accommodation', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    checkInDate: {
-        type: DataTypes.DATE,
-        allowNull: false
-    },
-    checkOutDate: {
-        type: DataTypes.DATE,
+    location:{
+        type: DataTypes.STRING,
         allowNull: false
     },
     price: {
@@ -185,9 +181,34 @@ const Itinerary = sequelize.define('Itinerary', {
 const Favourites = sequelize.define('Favourites', {
 });
 
+const TravelPlanAccommodation= sequelize.define('TravelPlanAccommodation',{
+    checkInDate: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+    checkOutDate: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+});
 
-User.hasMany(TravelPlan);
-TravelPlan.belongsTo(User);
+const TravelPlanDestination= sequelize.define('TravelPlanDestination',{
+    from: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+    until: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+});
+
+
+User.hasMany(TravelPlan,{ foreignKey:'UserId'});
+TravelPlan.belongsTo(User,{ foreignKey:'UserId'});
+
+Destination.hasMany(Accommodation,{ foreignKey:'DestinationId'});
+Accommodation.belongsTo(Destination,{ foreignKey:'DestinationId'});
 
 TravelPlan.belongsToMany(Destination, { through: 'TravelPlanDestination' });
 Destination.belongsToMany(TravelPlan, { through: 'TravelPlanDestination' });
@@ -215,13 +236,4 @@ try {
 } catch (err) {
     console.error('Error sychronizing the database:', err);
 }
-export {
-    TravelPlan,
-    Flight,
-    Destination,
-    Accommodation,
-    Rating,
-    Favourites,
-    User,
-    Itinerary
-} 
+export { TravelPlan,Flight,Destination,Accommodation,Rating,Favourites,User,Itinerary, TravelPlanAccommodation,TravelPlanDestination } 
