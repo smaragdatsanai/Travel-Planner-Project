@@ -1,73 +1,63 @@
-    <section class="header">
-        <h1>Travel Across The Globe</h1>
-        <div class="row ">
-            <div class="col d-flex align-content-center justify-content-center">
-                <p>Build your next vacation</p>
-            </div>
+<section class="header">
+    <h1>Travel Across The Globe</h1>
+    <div class="row ">
+        <div class="col d-flex align-content-center justify-content-center">
+            <p>Build your next vacation</p>
         </div>
-        <div class="row ">
-            <div class="col d-flex align-content-center justify-content-center">
-                <div class="input-group">
-
-                    <input type="text" class="form-control" placeholder="Search Destination">
-                    <div class="input-group-append">
-                        <button type="submit" class="input-group-text btn">Search</button>
-                    </div>
+    </div>
+    <div class="row ">
+        <form id="searchForm" action="/searchForPlan" method="post">
+            <div class="input-group">
+                <input type="text" class="form-control" id="searchInput" placeholder="Search Travel Plan">
+                <div class="input-group-append">
+                    <button type="submit" class="input-group-text btn">Search</button>
                 </div>
             </div>
-        </div>
-    </section>
+        </form>
+    </div>
+</section>
 
 
-    <section class="features">
-        <div class="padding ">
-            <h1 class="m-0">Our top Travel Plans</h1>
-            <div class="row ">
-                <div class="col d-flex align-content-center justify-content-center">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search Travel Plan">
-                        <div class="input-group-append">
-                            <button type="submit" class="input-group-text btn">Search</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="featuresControls" class="carousel slide carousel-dark py-md-2" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="card-group">
-                            <div class="card">
-                                <div class="feature-box">
-                                    <div class="feature-img">
-                                        <img src="/Public/img/1.jpg">
-                                    </div>
-                                    <div class="price">
-                                        <p>78$</p>
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                    </div>
+<section class="features">
+    <div class="padding ">
+        <h1 class="m-0">Our top Travel Plans</h1>
+
+        <div id="featuresControls" class="carousel slide carousel-dark py-md-2" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="feature-box">
+                                <div class="feature-img">
+                                    <img src="/Public/img/1.jpg">
                                 </div>
-                                <div class="card-body">
-                                    <div class="feature-details">
-                                        <h4>Los Angeles</h4>
-                                        <p>aoufyugyf afgdyaf gauy gfayug fuydga fya gayg afygaugifg gauygf uagf ua
-                                            gfusgdfusdg fsdug fudsfg usduoafyyfyodayfuoydfaosuyf</p>
-                                        <div class="card-footer">
-                                            <span> <i class="fa fa-map-marker">Los Angeles</i></span>
-                                            <span> <i class="fa fa-sun-o">4 Days</i></span>
-                                            <span> <i class="fa fa-moon-o">3 Nights </i></span>
-                                        </div>
+                                <div class="price">
+                                    <p>78$</p>
+                                </div>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="feature-details">
+                                    <h4>Los Angeles</h4>
+                                    <p>aoufyugyf afgdyaf gauy gfayug fuydga fya gayg afygaugifg gauygf uagf ua
+                                        gfusgdfusdg fsdug fudsfg usduoafyyfyodayfuoydfaosuyf</p>
+                                    <div class="card-footer">
+                                        <span> <i class="fa fa-map-marker">Los Angeles</i></span>
+                                        <span> <i class="fa fa-sun-o">4 Days</i></span>
+                                        <span> <i class="fa fa-moon-o">3 Nights </i></span>
                                     </div>
                                 </div>
                             </div>
-                            
                         </div>
-                    </div> 
+
+                    </div>
+                </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#featuresControls"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -80,9 +70,20 @@
                 </button>
             </div>
         </div>
-    </section>
+</section>
 
-   
+<section class="PlanButtons mb-5 pb-5">
+    <div class="row ">
+        <div class="col d-flex align-content-center justify-content-center">
+            <a href="/buildPlan" class="btn btn-outline-secondary mb-2">BUILD YOUR OWN PLAN</a>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col d-flex align-content-center justify-content-center">
+            <a href="/generatePlan" class="btn btn-outline-secondary mb-2">GENERATE PERSONALIZED PLAN</a>
+        </div>
+    </div>
+</section>
 
 
 
@@ -96,57 +97,63 @@
 
 
 
-   {{!-- 
-    <section class="gallery">
-        <h1>Our Top destinations:</h1>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="gallery-box">
-                        <img src="/Public/img/travel-1.jpg">
-                        <h4>Los Angeles</h4>
-                    </div>
+
+
+
+
+
+
+{{!--
+<section class="gallery">
+    <h1>Our Top destinations:</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="gallery-box">
+                    <img src="/Public/img/travel-1.jpg">
+                    <h4>Los Angeles</h4>
                 </div>
-                <div class="col-md-3">
-                    <div class="gallery-box">
-                        <img src="/Public/img/travel-1.jpg">
-                        <h4>Los Angeles</h4>
-                    </div>
+            </div>
+            <div class="col-md-3">
+                <div class="gallery-box">
+                    <img src="/Public/img/travel-1.jpg">
+                    <h4>Los Angeles</h4>
                 </div>
-                <div class="col-md-3">
-                    <div class="gallery-box">
-                        <img src="/Public/img/travel-1.jpg">
-                        <h4>Los Angeles</h4>
-                    </div>
+            </div>
+            <div class="col-md-3">
+                <div class="gallery-box">
+                    <img src="/Public/img/travel-1.jpg">
+                    <h4>Los Angeles</h4>
                 </div>
+            </div>
 
-                <div class="col-md-3">
-                    <div class="gallery-box">
-                        <img src="/Public/img/travel-1.jpg">
-                        <h4>Los Angeles</h4>
-                    </div>
+            <div class="col-md-3">
+                <div class="gallery-box">
+                    <img src="/Public/img/travel-1.jpg">
+                    <h4>Los Angeles</h4>
                 </div>
             </div>
         </div>
-    </section> --}}
+    </div>
+</section> --}}
 
-     {{!-- <section class="users-feedback">
-        <h1>Users Review</h1>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="user-review">
-                        <p>
-                            ggdsgdjgfsjhfgdsgf gfgsfhjgsfhjgfjhsgfjh jhgfhgfhsgfhsgfjhsgfjgs jsdgfjgfjsdgfjhgfjsgfjs
-                            jsfgjsgfjsgfjsgfdshfghfgdhgfdhgfjhgsd jhdgjsdgfjgfjsdf
-                        </p>
-                        <h5 class="user-name">John Doe</h5>
-                        <small>Los Angeles</small>
-                    </div>
-                    <img
-                        src="https://img.freepik.com/premium-vector/anonymous-user-circle-icon-vector-illustration-flat-style-with-long-shadow_520826-1931.jpg">
+{{!-- <section class="users-feedback">
+    <h1>Users Review</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="user-review">
+                    <p>
+                        ggdsgdjgfsjhfgdsgf gfgsfhjgsfhjgfjhsgfjh jhgfhgfhsgfhsgfjhsgfjgs jsdgfjgfjsdgfjhgfjsgfjs
+                        jsfgjsgfjsgfjsgfdshfghfgdhgfdhgfjhgsd jhdgjsdgfjgfjsdf
+                    </p>
+                    <h5 class="user-name">John Doe</h5>
+                    <small>Los Angeles</small>
                 </div>
+                <img
+                    src="https://img.freepik.com/premium-vector/anonymous-user-circle-icon-vector-illustration-flat-style-with-long-shadow_520826-1931.jpg">
             </div>
         </div>
+    </div>
 
-    </section> --}}
+</section> --}}

@@ -44,8 +44,6 @@ router.get('/home',
 
 //USER 
 
-
-
 router.get('/login', (req, res) => {
     res.render('./loginForm');
     }
@@ -76,8 +74,6 @@ router.post("/doRegister",
         res.redirect('/home')
     }
 );
-
-
 
 
 router.get('/logout',
