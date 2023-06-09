@@ -1,0 +1,56 @@
+    <h1>User Wishlist</h1>
+    {{#if userWishlist.length}}
+    {{#each userWishlist}}
+    <div class="travel-plan">
+        <div class="detail">
+            <span class="label">Name:</span> {{this.name}}
+        </div>
+        <div class="detail">
+            <span class="label">Start Date:</span> {{this.startDate}}
+        </div>
+        <div class="detail">
+            <span class="label">End Date:</span> {{this.endDate}}
+        </div>
+        <div class="detail">
+            <span class="label">Status:</span> {{this.status}}
+        </div>
+        <div class="detail">
+            <span class="label">Budget:</span> {{this.budget}}
+        </div>
+        <div class="detail">
+            <span class="label">Destinations:</span>
+            <ul>
+                {{#each this.Destinations}}
+                <li>{{this.Country}}, {{this.City}}</li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="detail">
+            <span class="label">Flights:</span>
+            <ul>
+                {{#each this.Flights}}
+                <li>{{this.airline}} - {{this.departureAirport}} to {{this.arrivalAirport}}</li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="detail">
+            <span class="label">Accommodations:</span>
+            <ul>
+                {{#each this.Accommodations}}
+                <li>{{this.name}} - {{this.location}}</li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="detail">
+            <span class="label">Itinerary:</span>
+            <ul>
+                {{#each this.Itineraries}}
+                <li>{{this.date}} - {{this.activityName}} at {{this.location}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    {{/each}}
+    {{else}}
+    <p>No travel plans found in the wishlist.</p>
+    {{/if}}
