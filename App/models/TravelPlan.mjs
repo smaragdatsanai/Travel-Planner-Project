@@ -103,35 +103,3 @@ export class TravelPlan {
     return destinations;
      }
    }
-}
-export { TravelPlan };
-   
-
-    configureDetails() {
-
-    }
-
-    cantCreatePlan() {
-
-    }
-    
-    planNotFound() {
-
-    }
-    
-    dataAuthentication() {
-
-    }
-    
-    provideSuggestions() {
-
-    }
-    
-    getPlanVisibility() {
-
-    }
-    
-    updateDatabase() {
-        
-    }
-}
