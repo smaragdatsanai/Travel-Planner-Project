@@ -4,9 +4,14 @@ import { sequelize } from "./db/dbConfig.mjs";
 import { Op } from "sequelize";
 
 export class User {
-  constructor(searchInput) {
-    this.searchInput = searchInput;
-  }
+  constructor(username, user_id, email, password, created_at, searchInput) {
+        this.username = username;
+        this.user_id = user_id;
+        this.email = email;
+        this.password = password;
+        this.created_at = created_at;
+        this.searchInput = searchInput;
+    }
   
    async search() {
     console.log(this.searchInput)
