@@ -56,12 +56,17 @@ class TravelPlan {
     // Retrieve the destinations of the travel plan
     const destinations = this.getDestinations();
 
-    // Calculate the popularity of each destination based on user feedback
+    // Retrieve the feedbacks for the travel plan
+    const feedbacks = Feedback.getFeedbacksByPlanId(this.plan_id);
+
+    // Calculate the popularity of each destination based on user feedback ratings
     const popularityMap = {};
     destinations.forEach((destination) => {
-      const feedbacks = destination.getFeedbacks();
-      const totalFeedbacks = feedbacks.length;
-      const totalRating = feedbacks.reduce((sum, feedback) => sum + feedback.rating, 0);
+      const destinationFeedbacks = feedbacks.filter(
+        (feedback) => feedback.plan_id === this.plan_id && feedback.destination === destination.name
+      );
+      const totalFeedbacks = destinationFeedbacks.length;
+      const totalRating = destinationFeedbacks.reduce((sum, feedback) => sum + feedback.stars, 0);
       const averageRating = totalRating / totalFeedbacks;
       popularityMap[destination.name] = averageRating;
     });
