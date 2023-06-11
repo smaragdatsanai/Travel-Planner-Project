@@ -1,6 +1,13 @@
 import {User}  from "./db/database.mjs";
 import bcrypt from "bcrypt"
 
+constructor(username, user_id, email, password, created_at) {
+        this.username = username;
+        this.user_id = user_id;
+        this.email = email;
+        this.password = password;
+        this.created_at = created_at;
+    }
 
 export async function addUser(username, password, Email) {
     try {
@@ -43,5 +50,13 @@ export async function addUser(username, password, Email) {
       } catch (error) {
           throw error
       }
+      
+   createUserAccount() {
+
+    }
+    
+   loginAsGuest() {
+        
+    }
   }
   
