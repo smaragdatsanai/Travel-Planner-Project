@@ -3,7 +3,7 @@ import { TravelPlan} from "./db/database.mjs";
 import { sequelize } from "./db/dbConfig.mjs";
 import { Op } from "sequelize";
 
-class User {
+export class User {
   constructor(searchInput) {
     this.searchInput = searchInput;
   }
@@ -39,5 +39,3 @@ class User {
 
 
 }
-
-export { User };

@@ -34,9 +34,7 @@ router.get("/", (req, res) => {
 );
 
 router.get('/home',
-    (req, res) => {
-        res.render('./home')
-    }
+    UserController.homePageRender
 );
 
 
@@ -109,4 +107,17 @@ router.get('/viewPlan/:planId',
     TravelPlanController.getPlan
 
 )
+
+
+
+//Provide Feedback
+
+// import { showTopDestinations } from './controllers/topDestinationController.mjs';
+// import { createReview, createComplaintForm } from './controllers/feedbackController.mjs';
+
+
+// router.get('/plan/:planId/top-destinations', showTopDestinations);
+
+// router.post('/feedback/review', createReview);
+// router.post('/feedback/complaint', createComplaintForm);
 export default router;

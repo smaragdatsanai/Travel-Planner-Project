@@ -8,7 +8,8 @@
     <div class="row ">
         <form id="searchForm" action="/searchForPlan" method="post">
             <div class="input-group">
-                <input type="text"  value="{{searchInput}}" name="searchInput"  class="form-control" id="searchInput" placeholder="Search Travel Plan">
+                <input type="text" value="{{searchInput}}" name="searchInput" class="form-control" id="searchInput"
+                    placeholder="Search Travel Plan">
                 <div class="input-group-append">
                     <button type="submit" class="input-group-text btn">Search</button>
                 </div>
@@ -18,70 +19,58 @@
 </section>
 
 <div class="padding ">
-   {{#if message}}
+    {{#if message}}
     <div class="container cont_style vstack gap-3 col-md-7 mx-auto py-5  ">
-         <div class="row ">
-    <div class="col-6 offset-3">
-        <div class="alert alert-primary" role="alert">
-            {{message}}
+        <div class="row ">
+            <div class="col-6 offset-3">
+                <div class="alert alert-primary" role="alert">
+                    {{message}}
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-{{/if}}
+        {{/if}}
 
 
-<section class="features">
-    <div class="padding ">
-        <h1 class="m-0">Our top Travel Plans</h1>
-
-        <div id="featuresControls" class="carousel slide carousel-dark py-md-2" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="card-group">
-                        <div class="card">
-                            <div class="feature-box">
-                                <div class="feature-img">
-                                    <img src="/Public/img/1.jpg">
-                                </div>
-                                <div class="price">
-                                    <p>78$</p>
-                                </div>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-half-o"></i>
-                                </div>
+        <section class="features">
+            <div class="padding ">
+                <h1 class="m-0">Our top Travel Plans</h1>
+                <div class="card-group">
+                    {{#each Plans}}
+                    <div class="card">
+                        <div class="feature-box">
+                            <div class="feature-img">
+                                <img src="{{this.Destinations.[0].Image}}">
                             </div>
-                            <div class="card-body">
-                                <div class="feature-details">
-                                    <h4>Los Angeles</h4>
-                                    <p>aoufyugyf afgdyaf gauy gfayug fuydga fya gayg afygaugifg gauygf uagf ua
-                                        gfusgdfusdg fsdug fudsfg usduoafyyfyodayfuoydfaosuyf</p>
-                                    <div class="card-footer">
-                                        <span> <i class="fa fa-map-marker">Los Angeles</i></span>
-                                        <span> <i class="fa fa-sun-o">4 Days</i></span>
-                                        <span> <i class="fa fa-moon-o">3 Nights </i></span>
-                                    </div>
+                            <div class="price">
+                                <p>{{this.budget}}$</p>
+                            </div>
+                            <div class="rating">
+                                {{#fillstars planRating.averageRatind.[@index]}}
+                                <i class="fa fa-star"></i>
+                                {{/fillstars}}
+                                {{#emptystars planRating.averageRatind.[@index]}}
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                {{/emptystars}}
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="feature-details">
+                                <h4>{{name}}</h4>
+                                <a href="/viewPlan/{{id}}" class="btn btn-outline-secondary mb-2">View this plan</a>
+                                <div class="card-footer">
+                                    {{!-- <span><i class="fa fa-map-marker"></i> {{this.location}}</span>
+                                    <span><i class="fa fa-sun-o"></i> {{this.duration}} Days</span>
+                                    <span><i class="fa fa-moon-o"></i> {{this.duration}} Nights</span> --}}
                                 </div>
                             </div>
                         </div>
-
                     </div>
+                    {{/each}}
+
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#featuresControls"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#featuresControls"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
-        </div>
+    </div>
+</div>
 </section>
 
 <section class="PlanButtons mb-5 pb-5">
@@ -152,18 +141,3 @@
     </div>
 
 </section> --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

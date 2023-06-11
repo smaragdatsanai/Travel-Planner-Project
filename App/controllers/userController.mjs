@@ -1,5 +1,7 @@
 import * as UserAcc from '../models/UserAccount.mjs' 
 import { User } from '../models/User.mjs';
+import { Home } from '../models/Home.mjs';
+import { TravelPlan } from '../models/TravelPlan.mjs';
 
 //////// SEARCH FOR PLAN ////////////////
 
@@ -21,8 +23,29 @@ export async function analyzeSearch(req, res, next) {
     }
 }
 
+//HOME PAGE//
 
 
+export async function homePageRender(req,res,next){
+    try{
+        console.log('HOME')
+        const homePage=new Home()
+        const topPlans = await homePage.getTopPlans()
+        const slicedPlans = topPlans.slice(0, 5);
+        console.log(slicedPlans)
+        const displayPlans=[]
+        for (const plan of slicedPlans) {
+            const Plan= new TravelPlan(plan.travelPlanId)
+            const newPlan= await Plan.viewPlan()
+            displayPlans.push(newPlan)
+        }
+        // console.log(displayPlans)
+        
+        res.render('./home', {Plans:displayPlans,planRating:slicedPlans})
+    }catch(error){
+        next(error)
+    }
+}
 
 
 

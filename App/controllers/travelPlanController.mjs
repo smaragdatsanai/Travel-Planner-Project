@@ -17,15 +17,15 @@ export async function getPlan(req, res, next) {
     }
 }
 
-export async function showTopDestinations(req, res, next) {
-  try {
-    const planId = req.params.planId;
-    const selectedPlan = new TravelPlan(planId);
-    const topDestinations = selectedPlan.chooseTopDestination();
+// export async function showTopDestinations(req, res, next) {
+//   try {
+//     const planId = req.params.planId;
+//     const selectedPlan = new TravelPlan(planId);
+//     const topDestinations = selectedPlan.chooseTopDestination();
 
-    res.render('./topDestinations', { topDestinations });
-  } catch (error) {
-    next(error);
-  }
-}
+//     res.render('./topDestinations', { topDestinations });
+//   } catch (error) {
+//     next(error);
+//   }
+// }
     
