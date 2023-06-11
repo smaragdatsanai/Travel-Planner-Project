@@ -57,13 +57,13 @@ class TravelPlan {
     }
 
     chooseTopDestination() {
-    // Retrieve the destinations of the travel plan
+    // Retrieve destinations
     const destinations = this.getDestinations();
 
-    // Retrieve the feedbacks for the travel plan
+    // Retrieve feedback for the travel plan
     const feedbacks = Feedback.getFeedbacksByPlanId(this.plan_id);
 
-    // Calculate the popularity of each destination based on user feedback ratings
+    // Calculate the popularity of each destination based on user feedback
     const popularityMap = {};
     destinations.forEach((destination) => {
       const destinationFeedbacks = feedbacks.filter(
@@ -86,8 +86,8 @@ class TravelPlan {
   }
 
   getDestinations() {
-    // Retrieve the destinations of the travel plan from the database
-    // Example implementation, replace with your actual logic
+    // Retrieve the destinations from the database
+      
     const destinations = Destination.findAll({
       where: {
         travelPlanId: this.plan_id,
