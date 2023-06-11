@@ -28,19 +28,16 @@ export async function analyzeSearch(req, res, next) {
 
 export async function homePageRender(req,res,next){
     try{
-        console.log('HOME')
+        res.locals.username = req.session.username
         const homePage=new Home()
         const topPlans = await homePage.getTopPlans()
         const slicedPlans = topPlans.slice(0, 5);
-        console.log(slicedPlans)
         const displayPlans=[]
         for (const plan of slicedPlans) {
             const Plan= new TravelPlan(plan.travelPlanId)
             const newPlan= await Plan.viewPlan()
             displayPlans.push(newPlan)
         }
-        // console.log(displayPlans)
-        
         res.render('./home', {Plans:displayPlans,planRating:slicedPlans})
     }catch(error){
         next(error)
@@ -97,14 +94,15 @@ const doLogout = (req, res, next) => {
 
 
 function checkIfAuthenticated(req, res, next) {
-    if (req.session.username) { //αν έχει τεθεί η μεταβλητή στο session store θεωρούμε πως ο χρήστης είναι συνδεδεμένος
-        res.locals.username = req.session.username
-        res.locals.userType = req.session.userType
-        next() //επόμενο middleware
+    if (req.session.username) {
+        res.locals.username = req.session.username;
+        next();
+    } else {
+        req.session.lastUrl = req.originalUrl;
+        res.redirect("/login");
     }
-    else
-        res.redirect("/") //αλλιώς ανακατεύθυνση στην αρχική σελίδα
 }
+
 
 
 export { checkIfAuthenticated, doLogin, doRegister, doLogout}

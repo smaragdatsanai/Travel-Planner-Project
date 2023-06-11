@@ -58,7 +58,13 @@ router.post("/doLogin",
     Validator.validateLogin,
     UserController.doLogin,
     (req, res) => {
-        res.redirect('/home')
+        if(req.session.lastUrl){
+            res.redirect(req.session.lastUrl)
+        }
+        else{
+            res.redirect('/home')
+        }
+        
     }
 );
 
@@ -68,7 +74,13 @@ router.post("/doRegister",
     UserController.doRegister,
     UserController.doLogin,
     (req, res) => {
-        res.redirect('/home')
+        if(req.session.lastUrl){
+            res.redirect(req.session.lastUrl)
+        }
+        else{
+            res.redirect('/home')
+        }
+        
     }
 );
 
@@ -103,7 +115,7 @@ router.post('/searchForPlan',
 )
 
 router.get('/viewPlan/:planId',
-    // UserController.checkIfAuthenticated,
+    UserController.checkIfAuthenticated,
     TravelPlanController.getPlan
 
 )

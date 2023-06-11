@@ -1,11 +1,13 @@
 <section class="header">
     <h1>Travel Across The Globe</h1>
-    <div class="row ">
+    <div class="row">
         <div class="col d-flex align-content-center justify-content-center">
             <p>Build your next vacation</p>
         </div>
     </div>
-    <div class="row ">
+    <div class="row">
+        <div class="col d-flex align-content-center justify-content-center">
+           
         <form id="searchForm" action="/searchForPlan" method="post">
             <div class="input-group">
                 <input type="text" value="{{searchInput}}" name="searchInput" class="form-control" id="searchInput"
@@ -17,6 +19,7 @@
         </form>
     </div>
 </section>
+
 
 <div class="padding ">
     {{#if message}}
@@ -45,17 +48,21 @@
                                 <p>{{this.budget}}$</p>
                             </div>
                             <div class="rating">
-                                {{#fillstars planRating.averageRatind.[@index]}}
+                                
+                                {{#fillstars ../planRating.[@index].averageRatind}}
                                 <i class="fa fa-star"></i>
                                 {{/fillstars}}
-                                {{#emptystars planRating.averageRatind.[@index]}}
+                                {{#emptystars ../planRating.[@index].averageRatind}}
                                 <i class="fa fa-star-o" aria-hidden="true"></i>
                                 {{/emptystars}}
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="feature-details">
-                                <h4>{{name}}</h4>
+                                <h4>{{name}} </h4>
+                                
+                                <p>Rating:{{getRatingAtIndex ../planRating @index}}</p>
+                                {{!-- Index: {{@index}} --}}
                                 <a href="/viewPlan/{{id}}" class="btn btn-outline-secondary mb-2">View this plan</a>
                                 <div class="card-footer">
                                     {{!-- <span><i class="fa fa-map-marker"></i> {{this.location}}</span>

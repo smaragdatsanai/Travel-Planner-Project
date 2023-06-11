@@ -30,6 +30,13 @@ handlebars.registerHelper('emptystars', function (n, block) {
 handlebars.registerHelper('isuser', function (value) {
     return value == "User";
   });
+
+  handlebars.registerHelper('getRatingAtIndex', function(planRating, index) {
+    
+    const rating = planRating[index].averageRating;
+    const ratingInt = parseInt(rating, 10);
+    return ratingInt;
+  });
   
 
 const MemoryStore = createMemoryStore(session)
