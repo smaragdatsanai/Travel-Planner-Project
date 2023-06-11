@@ -7,8 +7,8 @@ export class User {
   constructor(searchInput) {
     this.searchInput = searchInput;
   }
-
-  async search() {
+  
+   async search() {
     console.log(this.searchInput)
     const foundPlans = await TravelPlan.findAll({
       where: {
@@ -36,6 +36,53 @@ export class User {
     const similarity = (commonChars.length / Math.max(str1.length, str2.length)) * 100;
     return similarity;
   }
+  
+    hasUserAccount() {
 
+    }
 
+    balanceNotification() { //if budget balance low
+
+    }
+    
+    saveReport() {
+
+    }
+    
+    requestBudgetDestribution() {
+
+    }
+    
+    requestExpenses() {
+
+    }
+    
+    buildPlan() {
+
+    }
+    
+    requestPlanData() {
+
+    }
+    
+    requestFromSuggestions() {
+
+    }       
+    
+    setPlanVisibility() {
+
+    }
+
+    requestVisibility() {
+
+    }
+    
+    requestReservationChanges() {
+
+    }
+    
+    updateDatabase() {
+        
+    }
+  
 }
