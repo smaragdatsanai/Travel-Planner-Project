@@ -10,7 +10,7 @@ import { engine } from 'express-handlebars'
 import session from 'express-session'
 import createMemoryStore from 'memorystore'
 
-
+import { showTopDestinations } from './controllers/topDestinationController.mjs';
 
 
 handlebars.registerHelper('fillstars', function (n, block) {
@@ -60,6 +60,7 @@ app.set("view engine",".hbs")
 //middleware & static files
 app.use(express.static("public"))
 
+app.get('/plan/:planId/top-destinations', showTopDestinations);
 
 import * as Data from './models/db/addData.mjs'
 // Data.fetchWikivoyageData();
