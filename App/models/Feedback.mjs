@@ -36,7 +36,7 @@ class Feedback {
 
     }
     
-    getFeedbacksByPlanId(){
+    getFeedbackByPlanId(){
     
     }
 }

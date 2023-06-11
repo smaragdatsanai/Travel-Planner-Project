@@ -18,9 +18,6 @@ class Budget {
 
     }
     
-    budgetManagement() {
-
-    }
     
     budgetLow() {   //save request
 

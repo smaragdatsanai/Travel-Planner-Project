@@ -102,4 +102,32 @@ export class TravelPlan {
 
   //   return destinations;
   //    }
-   }
+   
+    configureDetails() {
+
+    }
+
+    cantCreatePlan() {
+
+    }
+    
+    planNotFound() {
+
+    }
+    
+    dataAuthentication() {
+
+    }
+    
+    provideSuggestions() {
+
+    }
+    
+    getPlanVisibility() {
+
+    }
+    
+    updateDatabase() {
+        
+    }
+}

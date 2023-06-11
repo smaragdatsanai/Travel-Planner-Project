@@ -4,11 +4,16 @@ import { sequelize } from "./db/dbConfig.mjs";
 import { Op } from "sequelize";
 
 export class User {
-  constructor(searchInput) {
-    this.searchInput = searchInput;
-  }
-
-  async search() {
+  constructor(username, user_id, email, password, created_at, searchInput) {
+        this.username = username;
+        this.user_id = user_id;
+        this.email = email;
+        this.password = password;
+        this.created_at = created_at;
+        this.searchInput = searchInput;
+    }
+  
+   async search() {
     console.log(this.searchInput)
     const foundPlans = await TravelPlan.findAll({
       where: {
@@ -36,6 +41,53 @@ export class User {
     const similarity = (commonChars.length / Math.max(str1.length, str2.length)) * 100;
     return similarity;
   }
+  
+    hasUserAccount() {
 
+    }
 
+    balanceNotification() { //if budget balance low
+
+    }
+    
+    saveReport() {
+
+    }
+    
+    requestBudgetDestribution() {
+
+    }
+    
+    requestExpenses() {
+
+    }
+    
+    buildPlan() {
+
+    }
+    
+    requestPlanData() {
+
+    }
+    
+    requestFromSuggestions() {
+
+    }       
+    
+    setPlanVisibility() {
+
+    }
+
+    requestVisibility() {
+
+    }
+    
+    requestReservationChanges() {
+
+    }
+    
+    updateDatabase() {
+        
+    }
+  
 }
