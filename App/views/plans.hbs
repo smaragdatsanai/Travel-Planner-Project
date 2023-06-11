@@ -1,0 +1,32 @@
+<div class="card-group">
+  {{#each Plans}}
+    <div class="card">
+      <div class="feature-box">
+        <div class="feature-img">
+          <img src="/Public/img/1.jpg">
+        </div>
+        <div class="price">
+          <p>78$</p>
+        </div>
+        <div class="rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-half-o"></i>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="feature-details">
+          <h4>{{this.name}}</h4>
+           <a href="/viewPlan/{{this.id}}" class="btn btn-outline-secondary mb-2">View this plan</a>
+          <div class="card-footer">
+            {{!-- <span><i class="fa fa-map-marker"></i> {{this.location}}</span>
+            <span><i class="fa fa-sun-o"></i> {{this.duration}} Days</span>
+            <span><i class="fa fa-moon-o"></i> {{this.duration}} Nights</span> --}}
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>

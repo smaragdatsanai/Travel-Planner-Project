@@ -8,7 +8,7 @@
     <div class="row ">
         <form id="searchForm" action="/searchForPlan" method="post">
             <div class="input-group">
-                <input type="text" class="form-control" id="searchInput" placeholder="Search Travel Plan">
+                <input type="text"  value="{{searchInput}}" name="searchInput"  class="form-control" id="searchInput" placeholder="Search Travel Plan">
                 <div class="input-group-append">
                     <button type="submit" class="input-group-text btn">Search</button>
                 </div>
@@ -16,6 +16,17 @@
         </form>
     </div>
 </section>
+
+<div class="padding ">
+   
+    <div class="container cont_style vstack gap-3 col-md-7 mx-auto py-5  ">
+         {{#if message}}<div class="row ">
+    <div class="col-6 offset-3">
+        <div class="alert alert-primary" role="alert">
+            {{message}}
+        </div>
+    </div>
+</div>
 
 
 <section class="features">

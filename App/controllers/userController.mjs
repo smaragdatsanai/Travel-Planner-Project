@@ -1,6 +1,32 @@
 import * as User from '../models/UserAccount.mjs' 
 
 
+//////// SEARCH FOR PLAN ////////////////
+
+export async function analyzeSearch(req, res, next) {
+    try {
+        const search= req.body.searchInput;
+        const user= new User(search)
+        const plans=user.search()
+        if (plans){
+            res.render('./plans',{Plans:plans})
+        }
+        else{
+            res.render('./home',{message:'No plans found'})
+        }
+    }catch(error){
+        next(error)
+    }
+}
+
+
+
+
+
+
+
+// LOGIN REGISTER LOG OUT 
+
 const doLogin = async (req, res, next) => {
     const username = req.body.username
     const password = req.body.password

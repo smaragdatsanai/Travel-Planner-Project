@@ -94,4 +94,20 @@ router.get('/switchaccounts',
 
 
 
+
+// SEARCH FOR PLAN USE CASE 
+
+router.get('/searchForPlan',
+    UserController.analyzeSearch,
+    (req, res) => {
+       res.render('./home')
+    }
+
+)
+
+router.get('/viewPlan/:planId',
+    UserController.checkIfAuthenticated,
+    TravelPlanController.getPlan
+
+)
 export default router;
