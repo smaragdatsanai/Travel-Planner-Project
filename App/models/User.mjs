@@ -9,15 +9,19 @@ class User {
   }
 
   async search() {
+    console.log(this.searchInput)
     const foundPlans = await TravelPlan.findAll({
       where: {
-        name: {        
-          [Op.like]: `%${this.searchInput}%`
+        name:{        
+          [Op.iLike]: `%${this.searchInput}%`
         }
       }
     });
-
+    
+    console.log(foundPlans)
     const planList = foundPlans.map(item => item.toJSON());
+    
+    console.log(planList)
     const sortedPlans = planList.sort((planA, planB) => {
       const similarityA = this.calculateSimilarity(planA.name, this.search);
       const similarityB = this.calculateSimilarity(planB.name, this.search);

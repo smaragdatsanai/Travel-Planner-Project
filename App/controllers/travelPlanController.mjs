@@ -1,10 +1,11 @@
-import * as travelPlan from '../models/TravelPlan.mjs'
+import { TravelPlan } from '../models/TravelPlan.mjs';
 
 export async function getPlan(req, res, next) {
     try {
 
-        const selectedPlan=new travelPlan(req.params.planId)
-        const plan=selectedPlan.viewPlan()
+        const selectedPlan=new TravelPlan(req.params.planId)
+        const plan=await selectedPlan.viewPlan()
+        console.log(plan)
         if(plan){
             res.render('./TravelPlan',{travelPlan:plan})
         }

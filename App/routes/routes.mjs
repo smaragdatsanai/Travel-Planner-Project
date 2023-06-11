@@ -34,7 +34,6 @@ router.get("/", (req, res) => {
 );
 
 router.get('/home',
-    // UserController.checkIfAuthenticated,
     (req, res) => {
         res.render('./home')
     }
@@ -106,7 +105,7 @@ router.post('/searchForPlan',
 )
 
 router.get('/viewPlan/:planId',
-    UserController.checkIfAuthenticated,
+    // UserController.checkIfAuthenticated,
     TravelPlanController.getPlan
 
 )

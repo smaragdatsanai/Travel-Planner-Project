@@ -6,8 +6,10 @@ import { User } from '../models/User.mjs';
 export async function analyzeSearch(req, res, next) {
     try {
         const searchInput= req.body.searchInput;
+        console.log(searchInput)
         const user = new User(searchInput)
-        const plans=user.search()
+        const plans=await user.search()
+        console.log(plans)
         if (plans){
             res.render('./plans',{Plans:plans})
         }

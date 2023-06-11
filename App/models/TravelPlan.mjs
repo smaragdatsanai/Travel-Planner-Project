@@ -1,4 +1,10 @@
-class TravelPlan {
+import {Flight, Destination, Accommodation, Rating, Favourites, User, Itinerary, TravelPlanAccommodation, TravelPlanDestination, TravelPlanFlight, TravelPlanItinerary}  from "./db/database.mjs";
+
+import { TravelPlan as dbTravelPlan} from "./db/database.mjs";
+import { sequelize } from "./db/dbConfig.mjs";
+import { Op } from "sequelize";
+
+export class TravelPlan {
 // , user_id, plan_name, destination, start_date, end_date
     constructor(plan_id) {
         this.plan_id = plan_id;
@@ -26,7 +32,7 @@ class TravelPlan {
     }
 
     async viewPlan() {
-        const foundPlan = await TravelPlan.findByPk(planId, {
+        const foundPlan = await dbTravelPlan.findByPk(this.plan_id, {
             include: [
               {
                 model: Flight
@@ -41,9 +47,15 @@ class TravelPlan {
               }
             ]
           });
+          
 
-          const plan= await foundPlan.map(item => item.toJSON());
-          return plan;
+          if (foundPlan) {
+            const plan = foundPlan.toJSON();
+            
+            return plan;
+          } else {
+            return null; 
+          }
     }
 
     enrichPlan() {
