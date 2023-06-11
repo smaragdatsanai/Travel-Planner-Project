@@ -35,4 +35,8 @@ class Feedback {
     createComplaintForm() {
 
     }
+    
+    getFeedbacksByPlanId(){
+    
+    }
 }
