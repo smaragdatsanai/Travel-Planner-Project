@@ -25,13 +25,13 @@ import multer from 'multer';
 const upload = multer({ dest: 'public/uploads/' });
 
 
-// router.get("/", (req, res) => {
-//     if (req.session.username)
-//         res.redirect("/home")
-//     else
-//         res.redirect("/login")
-// }
-// );
+router.get("/", (req, res) => {
+    // if (req.session.username)
+        res.redirect("/home")
+    // else
+    //     res.redirect("/login")
+}
+);
 
 router.get('/home',
     // UserController.checkIfAuthenticated,
@@ -97,7 +97,7 @@ router.get('/switchaccounts',
 
 // SEARCH FOR PLAN USE CASE 
 
-router.get('/searchForPlan',
+router.post('/searchForPlan',
     UserController.analyzeSearch,
     (req, res) => {
        res.render('./home')

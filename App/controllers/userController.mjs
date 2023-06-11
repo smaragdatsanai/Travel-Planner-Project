@@ -1,12 +1,12 @@
-import * as User from '../models/UserAccount.mjs' 
-
+import * as UserAcc from '../models/UserAccount.mjs' 
+import { User } from '../models/User.mjs';
 
 //////// SEARCH FOR PLAN ////////////////
 
 export async function analyzeSearch(req, res, next) {
     try {
-        const search= req.body.searchInput;
-        const user= new User(search)
+        const searchInput= req.body.searchInput;
+        const user = new User(searchInput)
         const plans=user.search()
         if (plans){
             res.render('./plans',{Plans:plans})
@@ -31,7 +31,7 @@ const doLogin = async (req, res, next) => {
     const username = req.body.username
     const password = req.body.password
     try{
-        const user = await User.login(username,password)
+        const user = await UserAcc.login(username,password)
         if (user) {
             req.session.username = req.body.username // το username μπαίνει σαν μεταβλητή συνεδρίας
             req.session.userId=user.UserId
@@ -52,7 +52,7 @@ const doRegister = async (req, res, next) => {
     const email = req.body.email
     console.log(req.body)
     try {
-        const user = await User.addUser(username,password,email)
+        const user = await UserAcc.addUser(username,password,email)
         if (user) {
             res.locals.message="Η εγγραφή του χρήστη έγινε με επιτυχία"
             next()
