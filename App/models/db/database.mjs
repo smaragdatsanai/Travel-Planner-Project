@@ -173,6 +173,9 @@ const Itinerary = sequelize.define('Itinerary', {
 const Favourites = sequelize.define('Favourites', {
 });
 
+const TravelPlanFlight = sequelize.define('TravelPlanFlight', {
+})
+
 const TravelPlanAccommodation= sequelize.define('TravelPlanAccommodation',{
     checkInDate: {
         type: DataTypes.DATE,
@@ -195,15 +198,11 @@ const TravelPlanDestination= sequelize.define('TravelPlanDestination',{
     },
 });
 
-const TravelPlanItinerary= sequelize.define('TravelPlanDestination',{
-    date: {
-        type: DataTypes.DATEONLY,
+const TravelPlanItinerary= sequelize.define('TravelPlanItinerary',{
+    datetime: {
+        type: DataTypes.DATE,
         allowNull: false,
-      },
-      time: {
-        type: DataTypes.TIME,
-        allowNull: false,
-      },
+      }
 });
 
 
@@ -242,4 +241,4 @@ try {
 } catch (err) {
     console.error('Error sychronizing the database:', err);
 }
-export { TravelPlan,Flight,Destination,Accommodation,Rating,Favourites,User,Itinerary, TravelPlanAccommodation,TravelPlanDestination,TravelPlanItinerary } 
+export { TravelPlan,Flight,Destination,Accommodation,Rating,Favourites,User,Itinerary, TravelPlanAccommodation,TravelPlanDestination,TravelPlanItinerary, TravelPlanFlight } 

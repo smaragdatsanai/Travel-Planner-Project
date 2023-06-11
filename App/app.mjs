@@ -61,12 +61,19 @@ app.set("view engine",".hbs")
 app.use(express.static("public"))
 
 
-// import * as Data from './models/db/addData.mjs'
+import * as Data from './models/db/addData.mjs'
 // Data.fetchWikivoyageData();
 // Data.createUser();
-
-
-
+// Data.createAccommodation();
+// Data.createFlight();
+// Data.createTravelPlan();
+// Data.createRating();
+// Data.createFavourites();
+// Data.createTravelPlanAccommodation();
+// Data.createTravelPlanDestination();
+// Data.createTravelPlanFlight();
+// Data.createItinerary();
+Data.createTravelPlanItinerary();
 
 //Diaxeiristes aithmatwn
 import routes from './routes/routes.mjs'
