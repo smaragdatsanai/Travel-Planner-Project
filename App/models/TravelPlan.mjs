@@ -1,4 +1,8 @@
+import { Flight } from './Flight.mjs';
 import { Destination } from './Destination.mjs';
+import { TravelPlanDestination } from './TravelPlanDestination.mjs';
+import { Accommodation } from './Accommodation.mjs';
+import { TravelPlanAccommodation } from './TravelPlanAccommodation.mjs';
 
 class TravelPlan {
 // , user_id, plan_name, destination, start_date, end_date
