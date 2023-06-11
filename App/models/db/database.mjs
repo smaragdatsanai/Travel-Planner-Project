@@ -156,14 +156,6 @@ const Itinerary = sequelize.define('Itinerary', {
         primaryKey: true,
         autoIncrement: true
     },
-    date: {
-      type: DataTypes.DATEONLY,
-      allowNull: false,
-    },
-    time: {
-      type: DataTypes.TIME,
-      allowNull: false,
-    },
     activityName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -180,6 +172,9 @@ const Itinerary = sequelize.define('Itinerary', {
 
 const Favourites = sequelize.define('Favourites', {
 });
+
+const TravelPlanFlight = sequelize.define('TravelPlanFlight', {
+})
 
 const TravelPlanAccommodation= sequelize.define('TravelPlanAccommodation',{
     checkInDate: {
@@ -203,6 +198,13 @@ const TravelPlanDestination= sequelize.define('TravelPlanDestination',{
     },
 });
 
+const TravelPlanItinerary= sequelize.define('TravelPlanItinerary',{
+    datetime: {
+        type: DataTypes.DATE,
+        allowNull: false,
+      }
+});
+
 
 User.hasMany(TravelPlan,{ foreignKey:'UserId'});
 TravelPlan.belongsTo(User,{ foreignKey:'UserId'});
@@ -212,6 +214,9 @@ Accommodation.belongsTo(Destination,{ foreignKey:'DestinationId'});
 
 TravelPlan.belongsToMany(Destination, { through: 'TravelPlanDestination' });
 Destination.belongsToMany(TravelPlan, { through: 'TravelPlanDestination' });
+
+TravelPlan.belongsToMany(Itinerary, { through: 'TravelPlanItinerary' });
+Itinerary.belongsToMany(TravelPlan, { through: 'TravelPlanItinerary' });
 
 TravelPlan.belongsToMany(Accommodation, { through: 'TravelPlanAccommodation' });
 Accommodation.belongsToMany(TravelPlan, { through: 'TravelPlanAccommodation' });
@@ -236,4 +241,4 @@ try {
 } catch (err) {
     console.error('Error sychronizing the database:', err);
 }
-export { TravelPlan,Flight,Destination,Accommodation,Rating,Favourites,User,Itinerary, TravelPlanAccommodation,TravelPlanDestination } 
+export { TravelPlan,Flight,Destination,Accommodation,Rating,Favourites,User,Itinerary, TravelPlanAccommodation,TravelPlanDestination,TravelPlanItinerary, TravelPlanFlight } 
