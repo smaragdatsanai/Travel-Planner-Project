@@ -10,8 +10,8 @@ import { engine } from 'express-handlebars'
 import session from 'express-session'
 import createMemoryStore from 'memorystore'
 
-import { showTopDestinations } from './controllers/topDestinationController.mjs';
-import { createReview, createComplaintForm } from './controllers/feedbackController.mjs';
+// import { showTopDestinations } from './controllers/topDestinationController.mjs';
+// import { createReview, createComplaintForm } from './controllers/feedbackController.mjs';
 
 
 handlebars.registerHelper('fillstars', function (n, block) {
@@ -61,10 +61,10 @@ app.set("view engine",".hbs")
 //middleware & static files
 app.use(express.static("public"))
 
-app.get('/plan/:planId/top-destinations', showTopDestinations);
+// app.get('/plan/:planId/top-destinations', showTopDestinations);
 
-app.post('/feedback/review', createReview);
-app.post('/feedback/complaint', createComplaintForm);
+// app.post('/feedback/review', createReview);
+// app.post('/feedback/complaint', createComplaintForm);
 
 // import * as Data from './models/db/addData.mjs'
 // Data.fetchWikivoyageData();

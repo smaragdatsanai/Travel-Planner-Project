@@ -10,7 +10,7 @@ export class TravelPlan {
         this.plan_id = plan_id;
         // this.user_id = user_id;
         // this.plan_name = plan_name;
-        this.destination = destination;
+        // this.destination = destination;
         // this.start_date = start_date;
         // this.end_date = end_date;
     }
@@ -62,44 +62,44 @@ export class TravelPlan {
 
     }
 
-    chooseTopDestination() {
-    // Retrieve destinations
-    const destinations = this.getDestinations();
+  //   chooseTopDestination() {
+  //   // Retrieve destinations
+  //   const destinations = this.getDestinations();
 
-    // Retrieve feedback for the travel plan
-    const feedbacks = Feedback.getFeedbacksByPlanId(this.plan_id);
+  //   // Retrieve feedback for the travel plan
+  //   const feedbacks = Feedback.getFeedbacksByPlanId(this.plan_id);
 
-    // Calculate the popularity of each destination based on user feedback
-    const popularityMap = {};
-    destinations.forEach((destination) => {
-      const destinationFeedbacks = feedbacks.filter(
-        (feedback) => feedback.plan_id === this.plan_id && feedback.destination === destination.name
-      );
-      const totalFeedbacks = destinationFeedbacks.length;
-      const totalRating = destinationFeedbacks.reduce((sum, feedback) => sum + feedback.stars, 0);
-      const averageRating = totalRating / totalFeedbacks;
-      popularityMap[destination.name] = averageRating;
-    });
+  //   // Calculate the popularity of each destination based on user feedback
+  //   const popularityMap = {};
+  //   destinations.forEach((destination) => {
+  //     const destinationFeedbacks = feedbacks.filter(
+  //       (feedback) => feedback.plan_id === this.plan_id && feedback.destination === destination.name
+  //     );
+  //     const totalFeedbacks = destinationFeedbacks.length;
+  //     const totalRating = destinationFeedbacks.reduce((sum, feedback) => sum + feedback.stars, 0);
+  //     const averageRating = totalRating / totalFeedbacks;
+  //     popularityMap[destination.name] = averageRating;
+  //   });
 
-    // Sort the destinations by popularity in descending order
-    const sortedDestinations = Object.entries(popularityMap).sort(
-      (a, b) => b[1] - a[1]
-    );
+  //   // Sort the destinations by popularity in descending order
+  //   const sortedDestinations = Object.entries(popularityMap).sort(
+  //     (a, b) => b[1] - a[1]
+  //   );
 
-    // Return the top destinations
-    const topDestinations = sortedDestinations.map(([destinationName]) => destinationName);
-    return topDestinations;
-  }
+  //   // Return the top destinations
+  //   const topDestinations = sortedDestinations.map(([destinationName]) => destinationName);
+  //   return topDestinations;
+  // }
 
-  getDestinations() {
-    // Retrieve the destinations from the database
+  // getDestinations() {
+  //   // Retrieve the destinations from the database
       
-    const destinations = Destination.findAll({
-      where: {
-        travelPlanId: this.plan_id,
-      },
-    });
+  //   const destinations = Destination.findAll({
+  //     where: {
+  //       travelPlanId: this.plan_id,
+  //     },
+  //   });
 
-    return destinations;
-     }
+  //   return destinations;
+  //    }
    }
