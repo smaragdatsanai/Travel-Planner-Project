@@ -1,10 +1,11 @@
-class Inventory {
+import {Favourites}  from "./db/database.mjs";
 
-    constructor(username, user_id, plan_id, plan_name) {
-        this.username = username;
+
+class Wishlist {
+
+    constructor(user_id, plan_id) {
         this.user_id = user_id;
         this.plan_id = plan_id;
-        this.plan_name = plan_name;
     }
 
     showFavorites() {
@@ -18,4 +19,5 @@ class Inventory {
     updateDatabase() {
         
     }
+
 }

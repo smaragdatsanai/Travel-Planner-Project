@@ -1,0 +1,48 @@
+    <h1>Travel Plan Details</h1>
+    <div class="detail">
+        <span class="label">Name:</span> {{travelPlan.name}}
+    </div>
+    <div class="detail">
+        <span class="label">Start Date:</span> {{travelPlan.startDate}}
+    </div>
+    <div class="detail">
+        <span class="label">End Date:</span> {{travelPlan.endDate}}
+    </div>
+    <div class="detail">
+        <span class="label">Status:</span> {{travelPlan.status}}
+    </div>
+    <div class="detail">
+        <span class="label">Budget:</span> {{travelPlan.budget}}
+    </div>
+    <div class="detail">
+        <span class="label">Destinations:</span>
+        <ul>
+            {{#each travelPlan.Destinations}}
+            <li>{{this.Country}}, {{this.City}}</li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="detail">
+        <span class="label">Flights:</span>
+        <ul>
+            {{#each travelPlan.Flights}}
+            <li>{{this.airline}} - {{this.departureAirport}} to {{this.arrivalAirport}}</li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="detail">
+        <span class="label">Accommodations:</span>
+        <ul>
+            {{#each travelPlan.Accommodations}}
+            <li>{{this.name}} - {{this.location}}</li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="detail">
+        <span class="label">Itinerary:</span>
+        <ul>
+            {{#each travelPlan.Itineraries}}
+            <li>{{this.date}} - {{this.activityName}} at {{this.location}}</li>
+            {{/each}}
+        </ul>
+    </div>

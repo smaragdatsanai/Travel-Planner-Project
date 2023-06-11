@@ -198,11 +198,23 @@ const TravelPlanDestination= sequelize.define('TravelPlanDestination',{
     },
 });
 
+<<<<<<< HEAD
 const TravelPlanItinerary= sequelize.define('TravelPlanItinerary',{
     datetime: {
         type: DataTypes.DATE,
         allowNull: false,
       }
+=======
+const TravelPlanItinerary= sequelize.define('TravelPlanDestination',{
+    date: {
+        type: DataTypes.DATEONLY,
+        allowNull: false,
+      },
+      time: {
+        type: DataTypes.TIME,
+        allowNull: false,
+      },
+>>>>>>> 0a390893e1c1d213735b58e79004123b28313953
 });
 
 
@@ -241,4 +253,8 @@ try {
 } catch (err) {
     console.error('Error sychronizing the database:', err);
 }
+<<<<<<< HEAD
 export { TravelPlan,Flight,Destination,Accommodation,Rating,Favourites,User,Itinerary, TravelPlanAccommodation,TravelPlanDestination,TravelPlanItinerary, TravelPlanFlight } 
+=======
+export { TravelPlan,Flight,Destination,Accommodation,Rating,Favourites,User,Itinerary, TravelPlanAccommodation,TravelPlanDestination,TravelPlanItinerary } 
+>>>>>>> 0a390893e1c1d213735b58e79004123b28313953
