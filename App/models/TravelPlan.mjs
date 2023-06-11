@@ -1,4 +1,4 @@
-import {Flight, Destination, Accommodation, Rating, Favourites, User, Itinerary, TravelPlanAccommodation, TravelPlanDestination, TravelPlanFlight, TravelPlanItinerary}  from "./db/database.mjs";
+import {Flight, Destination, Accommodation, TravelPlanAccommodation, TravelPlanDestination}  from "./db/database.mjs";
 
 import { TravelPlan as dbTravelPlan} from "./db/database.mjs";
 import { sequelize } from "./db/dbConfig.mjs";
