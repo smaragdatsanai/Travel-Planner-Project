@@ -18,15 +18,16 @@
 </section>
 
 <div class="padding ">
-   
+   {{#if message}}
     <div class="container cont_style vstack gap-3 col-md-7 mx-auto py-5  ">
-         {{#if message}}<div class="row ">
+         <div class="row ">
     <div class="col-6 offset-3">
         <div class="alert alert-primary" role="alert">
             {{message}}
         </div>
     </div>
 </div>
+{{/if}}
 
 
 <section class="features">
@@ -98,24 +99,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{{!--
-<section class="gallery">
+{{!--<section class="gallery">
     <h1>Our Top destinations:</h1>
     <div class="container">
         <div class="row">
@@ -168,3 +152,18 @@
     </div>
 
 </section> --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
